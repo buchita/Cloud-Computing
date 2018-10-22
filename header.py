@@ -1,3 +1,5 @@
+# The given code
+
 from urllib.request import Request, urlopen
 from json import loads
 import json

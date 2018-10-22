@@ -1,3 +1,6 @@
+# Purpose: using this for flask to run on the website
+
+
 from flask import Flask
 app = Flask(__name__)
 

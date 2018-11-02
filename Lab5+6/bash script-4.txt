@@ -1,0 +1,10 @@
+ #!/bin/bash
+
+#create a resource group 
+az group create --location westeurope --name myResource
+
+#create VM
+az vm create --g myResource --name VM1 --image UbuntuLTS --generate-ssh-keys --verbose
+
+#install python/flask
+pip install --user flask

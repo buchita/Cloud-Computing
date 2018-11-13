@@ -1,0 +1,22 @@
+select * from dt2nn3_b2.room_table;
+select * from dt2nn3_b2.time_Table;
+select * from DT2NN3_B2.session_table;
+select * from dt2nn3_b2.module_table;
+select * from dt2nn3_b2.class_table;
+
+--selection with restriction ( dealign with which rows to return)
+--displaying the modules which are lab on Friday
+SELECT * FROM DT2NN3_B2.SESSION_TABLE 
+JOIN DT2NN3_B2.MODULE_TABLE USING(CRN)
+WHERE DAY_NAME LIKE 'FRIDAY' AND SESSION_TYPE LIKE 'Lab';
+
+--projection ( dealing with which columns to return )
+--get the course code and module name which mods are for DT211 in semester 1
+SELECT COURSE_CODE, MOD_NAME FROM DT2NN3_B2.MODULE_TABLE
+WHERE SEMESTER = '1' AND COURSE_CODE LIKE 'DT211';
+
+--Aggregation with filters on aggregates
+--get the average hour of the mod type such as single-semester or linked-semester
+select mode_type ,avg(contact_hour)
+from dt2nn3_b2.module_table
+group by mode_type;

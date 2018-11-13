@@ -16,7 +16,17 @@ SELECT COURSE_CODE, MOD_NAME FROM DT2NN3_B2.MODULE_TABLE
 WHERE SEMESTER = '1' AND COURSE_CODE LIKE 'DT211';
 
 --Aggregation with filters on aggregates
---get the average hour of the mod type such as single-semester or linked-semester
+--get the average hour of the mod type such as single-semester or linked-semester where the students are more than 30
 select mode_type ,avg(contact_hour)
 from dt2nn3_b2.module_table
-group by mode_type;
+where num_students >30
+group by mode_type
+;
+
+
+--union 
+select course_code, mod_name from dt2nn3_b2.module_Table where course_code = 'DT211'
+union
+select course_code, mod_name from DT2NN3_B2.module_table where contact_hour<30;
+
+

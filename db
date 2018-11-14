@@ -23,10 +23,24 @@ where num_students >30
 group by mode_type
 ;
 
-
 --union 
-select course_code, mod_name from dt2nn3_b2.module_Table where course_code = 'DT211'
+--getting both results and combine
+--getting the DT211 and number of students in the class that is more than 30
+select course_code, mod_name, num_students from dt2nn3_b2.module_Table where course_code = 'DT211'
 union
-select course_code, mod_name from DT2NN3_B2.module_table where contact_hour<30;
+select course_code, mod_name, num_students from DT2NN3_B2.module_table where num_students>40;
+
+select * from dt2nn3_b2.module_table;
+
+--minus & difference 
+--getting anything thats more than 40 students and not in DT211
+select course_code, mod_name, num_students from DT2NN3_B2.module_table where num_students>40
+minus
+select course_code, mod_name, num_students from dt2nn3_b2.module_Table where course_code = 'DT211';
+
+--getting anything thats in DT211 and no more than 40
+select course_code, mod_name, num_students from dt2nn3_b2.module_Table where course_code = 'DT211'
+minus
+select course_code, mod_name, num_students from DT2NN3_B2.module_table where num_students>40;
 
 

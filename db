@@ -44,3 +44,8 @@ minus
 select course_code, mod_name, num_students from DT2NN3_B2.module_table where num_students>40;
 
 
+--inner join 
+--joining 2 tables
+select * from dt2nn3_b2.module_table 
+inner join dt2nn3_b2.lecturer on dt2nn3_b2.module_table.lecturer_id = dt2nn3_b2.lecturer.lecturer_id 
+where num_students is not null ;

@@ -48,7 +48,7 @@ select room_num from DT2NN3_B2.time_table);
 
 
 
---inner join 
+---------------inner join----------------
 --joining 2 tables
 select * from dt2nn3_b2.module_table 
 inner join dt2nn3_b2.lecturer on dt2nn3_b2.module_table.lecturer_id = dt2nn3_b2.lecturer.lecturer_id 
